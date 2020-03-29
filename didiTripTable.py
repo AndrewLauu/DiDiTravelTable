@@ -33,7 +33,7 @@ tables = dict(sorted(tables.items(), key=lambda d: d[0]))
 
 # 注册命名空间，实例化doc
 # doc = bs(docTmp, 'xml')
-for prefix, uri in etNode.xmlns:
+for prefix, uri in etNode.xmlns.items():
     et.register_namespace(prefix, uri)
 w = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 doc = et.fromstring(etNode.docTmp)
@@ -41,10 +41,15 @@ doc = et.fromstring(etNode.docTmp)
 # 增加信息段
 # @nRow
 # @sumPrice
-pInfoTmp = etNode.pInfoTmp.replace('@nRow', f'{nRow - 1}').replace('@sumPrice', str(sumPrice))
+pInfo1 = et.fromstring(etNode.pInfoTmp1)
+pInfoTmp2 = etNode.pInfoTmp2.replace('@nRow',
+                                     str(nRow - 1).replace('@sumPrice', str(sumPrice)))
 # pInfo = bs(pInfoTmp, 'xml')
-pInfo = et.fromstring(pInfoTmp)
-doc.find('w:body').append(pInfo)
+pInfo2 = et.fromstring(pInfoTmp2)
+pInfoSuffix = et.fromstring(etNode.pInfoTmpSuffix)
+doc.find(w + 'body').append(pInfo1)
+doc.find(w + 'body').append(pInfo2)
+doc.find(w + 'body').append(pInfoSuffix)
 print('Read excel.')
 
 # 实例化表格及行元素
@@ -63,8 +68,9 @@ pBlank = et.fromstring(etNode.pBlankTmp)
 # w_shd_0 = tr.new_tag('w:shd', attrs={'w:val' :"clear", 'w:color':"auto",'w:fill':"666666"})
 # w_shd_even = tr.new_tag('w:shd', attrs={'w:val':  'clear', 'w:color': 'auto',
 #                                         'w:fill': 'F0F0F0'})
-w_shd_even = et.SubElement(tr, 'w:shd', attrib={'w:val': 'clear', 'w:color': 'auto', 'w:fill':
-                                                         'F0F0F0'})
+# w_shd_even = et.SubElement(tr, 'w:shd', attrib={'w:val': 'clear', 'w:color': 'auto',
+#               'w:fill': 'F0F0F0'})
+w_shd_even = et.fromstring(etNode.w_shd_even_tmp)
 
 # 遍历表中的分表，完善表元素并插入doc
 for page, table in tables.items():
@@ -82,24 +88,25 @@ for page, table in tables.items():
         for cell in row:
             # w_t = tc.new_tag('w:t')
             # w_t.string = str(cell)
-            w_t = et.SubElement(tc, 'w:t')
+            w_t = et.SubElement(tc.find(f'{w}p/{w}r'), 'w:t')
             w_t.text = str(cell)
-            tc.find(w + 'r').append(w_t)
+            # tc.find(w + 'r').append(w_t)
             tr.append(tc)
         # tr插入tbl
         tbl.append(tr)
     # 完善tbl，插入doc
-    # if page==0:
     print('Adding prefix')
-    doc.find('body').append(pPadding)
-    doc.find('body').append(pBlank)
-    doc.find('body').append(tbl)
+
+    doc.find(w+'body').append(pPadding)
+    for _ in range(3):
+        doc.find(w+'body').append(pBlank)
+    doc.find(w+'body').append(tbl)
 
 # 实例化sectPr并插入doc
 # sectPr = bs(sectPrTmp, 'xml')
 sectPr = et.fromstring(etNode.sectPrTmp)
-doc.find('body').append(sectPr)
+doc.find(w+'body').append(sectPr)
 workbook.close()
 print('write to file')
 with open('files/DiDiTravelPersonnel/word/document.xml', 'w') as f:
-    f.write(str(doc))
+    f.write(et.tostring(doc,encoding='unicode'))

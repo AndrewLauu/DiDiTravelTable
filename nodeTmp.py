@@ -961,18 +961,15 @@ class etNode():
         'wpsCustomData': "http://www.wps.cn/officeDocument/2013/wpsCustomData"
         }
 
-    docTmp = '''
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    docTmp = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:o="urn:schemas-microsoft-com:office:office"
                 xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
                 xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
                 xmlns:v="urn:schemas-microsoft-com:vml"
-                xmlns:wp14="http://schemas.microsoft.com/office/word/2010
-                /wordprocessingDrawing"
-                xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006
-                /wordprocessingDrawing"
+                xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+                xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
                 xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
                 xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
                 xmlns:w10="urn:schemas-microsoft-com:office:word"
@@ -1231,193 +1228,194 @@ class etNode():
                 </w:pPr>
             </w:p>
         </w:body>
-    </w:document>
-    '''
+</w:document>'''
 
-    pInfoTmp = '''
-            <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-                <w:pPr>
-                    <w:pStyle w:val="2"/>
-                    <w:tabs>
-                        <w:tab w:val="left" w:pos="3509"/>
-                    </w:tabs>
-                    <w:ind w:left="210"/>
-                </w:pPr>
-                <w:r>
-                    <w:pict>
-                        <v:line id="_x0000_s1026" o:spid="_x0000_s1026" o:spt="20"
-                                style="position:absolute;left:0pt;margin-left:43.5pt;margin-top
+    pInfoTmp1 = '''
+    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" 
+  xmlns:v="urn:schemas-microsoft-com:vml" 
+  xmlns:o="urn:schemas-microsoft-com:office:office">
+  <w:pPr>
+    <w:pStyle w:val="2"/>
+    <w:tabs>
+      <w:tab w:val="left" w:pos="3509"/>
+    </w:tabs>
+    <w:ind w:left="210"/>
+  </w:pPr>
+  <w:r>
+    <w:pict>
+      <v:line id="_x0000_s1026" o:spid="_x0000_s1026" o:spt="20" 
+      style="position:absolute;left:0pt;margin-left:43.5pt;margin-top
                                 :4.55pt;height:5.95pt;width:0pt;mso-position-horizontal
                                 -relative
                                 :page;z-index:1024;mso-width-relative:page;mso-height-relative
-                                :page;"
-                                stroked="t" coordsize="21600,21600">
-                            <v:path arrowok="t"/>
-                            <v:fill focussize="0,0"/>
-                            <v:stroke weight="2pt" color="#000000"/>
-                            <v:imagedata o:title=""/>
-                            <o:lock v:ext="edit"/>
-                        </v:line>
-                    </w:pict>
-                </w:r>
-                <w:r>
-                    <w:pict>
-                        <v:line id="_x0000_s1027" o:spid="_x0000_s1027" o:spt="20"
-                                style="position:absolute;left:0pt;margin-left:208.5pt;margin
+                                :page;" stroked="t" coordsize="21600,21600">
+        <v:path arrowok="t"/>
+        <v:fill focussize="0,0"/>
+        <v:stroke weight="2pt" color="#000000"/>
+        <v:imagedata o:title=""/>
+        <o:lock v:ext="edit"/>
+      </v:line>
+    </w:pict>
+  </w:r>
+  <w:r>
+    <w:pict>
+      <v:line id="_x0000_s1027" o:spid="_x0000_s1027" o:spt="20" 
+      style="position:absolute;left:0pt;margin-left:208.5pt;margin
                                 -top
                                 :4.55pt;height:5.95pt;width:0pt;mso-position-horizontal
                                 -relative
                                 :page;z-index:-17408;mso-width-relative:page;mso-height
                                 -relative
-                                :page;"
-                                stroked="t" coordsize="21600,21600">
-                            <v:path arrowok="t"/>
-                            <v:fill focussize="0,0"/>
-                            <v:stroke weight="2pt" color="#000000"/>
-                            <v:imagedata o:title=""/>
-                            <o:lock v:ext="edit"/>
-                        </v:line>
-                    </w:pict>
-                </w:r>
-                <w:r>
-                    <w:t>申请日期:2018-09-11</w:t>
-                </w:r>
-                <w:r>
-                    <w:tab/>
-                </w:r>
-                <w:r>
-                    <w:t>行程时间:201</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:hint="eastAsia"/>
-                        <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
-                    </w:rPr>
-                    <w:t>8</w:t>
-                </w:r>
-                <w:r>
-                    <w:t>-01-24</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:spacing w:val="-2"/>
-                    </w:rPr>
-                    <w:t xml:space="preserve"> </w:t>
-                </w:r>
-                <w:r>
-                    <w:t>至</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:spacing w:val="-1"/>
-                    </w:rPr>
-                    <w:t xml:space="preserve"> </w:t>
-                </w:r>
-                <w:r>
-                    <w:t>201</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:hint="eastAsia"/>
-                        <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
-                    </w:rPr>
-                    <w:t>8</w:t>
-                </w:r>
-                <w:r>
-                    <w:t>-03-27</w:t>
-                </w:r>
-            </w:p>
-            <w:p>
-                <w:pPr>
-                    <w:pStyle w:val="2"/>
-                    <w:tabs>
-                        <w:tab w:val="left" w:pos="3509"/>
-                    </w:tabs>
-                    <w:spacing w:before="25"/>
-                    <w:ind w:left="210"/>
-                </w:pPr>
-                <w:r>
-                    <w:pict>
-                        <v:line id="_x0000_s1028" o:spid="_x0000_s1028" o:spt="20"
-                                style="position:absolute;left:0pt;margin-left:43.5pt;margin-top
+                                :page;" stroked="t" coordsize="21600,21600">
+        <v:path arrowok="t"/>
+        <v:fill focussize="0,0"/>
+        <v:stroke weight="2pt" color="#000000"/>
+        <v:imagedata o:title=""/>
+        <o:lock v:ext="edit"/>
+      </v:line>
+    </w:pict>
+  </w:r>
+  <w:r>
+    <w:t>申请日期:2018-09-11</w:t>
+  </w:r>
+  <w:r>
+    <w:tab/>
+  </w:r>
+  <w:r>
+    <w:t>行程时间:201</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:rFonts w:hint="eastAsia"/>
+      <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+    </w:rPr>
+    <w:t>8</w:t>
+  </w:r>
+  <w:r>
+    <w:t>-01-24</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:spacing w:val="-2"/>
+    </w:rPr>
+    <w:t xml:space="preserve"></w:t>
+  </w:r>
+  <w:r>
+    <w:t>至</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:spacing w:val="-1"/>
+    </w:rPr>
+    <w:t xml:space="preserve"></w:t>
+  </w:r>
+  <w:r>
+    <w:t>201</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:rFonts w:hint="eastAsia"/>
+      <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+    </w:rPr>
+    <w:t>8</w:t>
+  </w:r>
+  <w:r>
+    <w:t>-03-27</w:t>
+  </w:r>
+</w:p>
+    '''
+    pInfoTmp2 = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" 
+  xmlns:v="urn:schemas-microsoft-com:vml" 
+  xmlns:o="urn:schemas-microsoft-com:office:office">
+  <w:pPr>
+    <w:pStyle w:val="2"/>
+    <w:tabs>
+      <w:tab w:val="left" w:pos="3509"/>
+    </w:tabs>
+    <w:spacing w:before="25"/>
+    <w:ind w:left="210"/>
+  </w:pPr>
+  <w:r>
+    <w:pict>
+      <v:line id="_x0000_s1028" o:spid="_x0000_s1028" o:spt="20" 
+      style="position:absolute;left:0pt;margin-left:43.5pt;margin-top
                                 :5.8pt;height:5.95pt;width:0pt;mso-position-horizontal-relative
                                 :page;z-index:2048;mso-width-relative:page;mso-height-relative
-                                :page;"
-                                stroked="t" coordsize="21600,21600">
-                            <v:path arrowok="t"/>
-                            <v:fill focussize="0,0"/>
-                            <v:stroke weight="2pt" color="#000000"/>
-                            <v:imagedata o:title=""/>
-                            <o:lock v:ext="edit"/>
-                        </v:line>
-                    </w:pict>
-                </w:r>
-                <w:r>
-                    <w:pict>
-                        <v:line id="_x0000_s1029" o:spid="_x0000_s1029" o:spt="20"
-                                style="position:absolute;left:0pt;margin-left:208.5pt;margin
+                                :page;" stroked="t" coordsize="21600,21600">
+        <v:path arrowok="t"/>
+        <v:fill focussize="0,0"/>
+        <v:stroke weight="2pt" color="#000000"/>
+        <v:imagedata o:title=""/>
+        <o:lock v:ext="edit"/>
+      </v:line>
+    </w:pict>
+  </w:r>
+  <w:r>
+    <w:pict>
+      <v:line id="_x0000_s1029" o:spid="_x0000_s1029" o:spt="20" 
+      style="position:absolute;left:0pt;margin-left:208.5pt;margin
                                 -top
                                 :5.8pt;height:5.95pt;width:0pt;mso-position-horizontal-relative
                                 :page;z-index:-17408;mso-width-relative:page;mso-height
                                 -relative
-                                :page;"
-                                stroked="t" coordsize="21600,21600">
-                            <v:path arrowok="t"/>
-                            <v:fill focussize="0,0"/>
-                            <v:stroke weight="2pt" color="#000000"/>
-                            <v:imagedata o:title=""/>
-                            <o:lock v:ext="edit"/>
-                        </v:line>
-                    </w:pict>
-                </w:r>
-                <w:r>
-                    <w:t>行程人手机号:1</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:rFonts w:hint="eastAsia"/>
-                        <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
-                    </w:rPr>
-                    <w:t>7853146708</w:t>
-                </w:r>
-                <w:r>
-                    <w:tab/>
-                </w:r>
-                <w:r>
-                    <w:t>共@nRow笔行程，</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:spacing w:val="-2"/>
-                    </w:rPr>
-                    <w:t xml:space="preserve"> </w:t>
-                </w:r>
-                <w:r>
-                    <w:t>合计</w:t>
-                </w:r>
-                <w:r>
-                    <w:rPr>
-                        <w:spacing w:val="-1"/>
-                    </w:rPr>
-                    <w:t xml:space="preserve"> </w:t>
-                </w:r>
-                <w:r>
-                    <w:t>@sumPrice元</w:t>
-                </w:r>
-            </w:p>
-                    <w:p>
-                <w:pPr>
-                    <w:pStyle w:val="2"/>
-                    <w:spacing w:before="6"/>
-                    <w:rPr>
-                        <w:sz w:val="6"/>
-                    </w:rPr>
-                </w:pPr>
-            </w:p>
+                                :page;" stroked="t" coordsize="21600,21600">
+        <v:path arrowok="t"/>
+        <v:fill focussize="0,0"/>
+        <v:stroke weight="2pt" color="#000000"/>
+        <v:imagedata o:title=""/>
+        <o:lock v:ext="edit"/>
+      </v:line>
+    </w:pict>
+  </w:r>
+  <w:r>
+    <w:t>行程人手机号:1</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:rFonts w:hint="eastAsia"/>
+      <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+    </w:rPr>
+    <w:t>7853146708</w:t>
+  </w:r>
+  <w:r>
+    <w:tab/>
+  </w:r>
+  <w:r>
+    <w:t>共@nRow笔行程，</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:spacing w:val="-2"/>
+    </w:rPr>
+    <w:t xml:space="preserve"></w:t>
+  </w:r>
+  <w:r>
+    <w:t>合计</w:t>
+  </w:r>
+  <w:r>
+    <w:rPr>
+      <w:spacing w:val="-1"/>
+    </w:rPr>
+    <w:t xml:space="preserve"></w:t>
+  </w:r>
+  <w:r>
+    <w:t>@sumPrice元</w:t>
+  </w:r>
+</w:p>
+    '''
+    pInfoTmpSuffix = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml
+    /2006/main">
+  <w:pPr>
+    <w:pStyle w:val="2"/>
+    <w:spacing w:before="6"/>
+    <w:rPr>
+      <w:sz w:val="6"/>
+    </w:rPr>
+  </w:pPr>
+</w:p>
     '''
 
-    tblTmp = '''
-        <w:tbl xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    tblTmp = '''<w:tbl xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
           <w:tblPr>
             <w:tblStyle w:val="4"/>
             <w:tblW w:w="10399" w:type="dxa"/>
@@ -1777,8 +1775,7 @@ class etNode():
     </w:tbl>
     '''
 
-    trTmp = '''
-    <w:tr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    trTmp = '''<w:tr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:tblPrEx>
             <w:tblBorders>
                 <w:top w:val="single" w:color="D0D0D0" w:sz="4" w:space="0"/>
@@ -1802,8 +1799,11 @@ class etNode():
     </w:tr>
     '''
 
-    tcTmp = '''
-    <w:tc xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    w_shd_even_tmp = '''<w:shd 
+    xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    w:val="clear" w:color="auto" w:fill="F0F0F0"/>'''
+
+    tcTmp = '''<w:tc xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:tcPr>
             <w:tcW w:w="866" w:type="dxa"/>
             <w:tcBorders>
@@ -1835,11 +1835,10 @@ class etNode():
                 </w:rPr>
             </w:r>
         </w:p>
-    </w:tc>
-    '''
+    </w:tc>'''
 
-    pPaddingTmp = '''
-    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    pPaddingTmp = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006
+    /main">
         <w:pPr>
             <w:spacing w:after="0"/>
             <w:rPr>
@@ -1852,11 +1851,9 @@ class etNode():
                 w:footer="720" w:gutter="0"/>
             </w:sectPr>
         </w:pPr>
-    </w:p>
-            '''
+    </w:p>'''
 
-    pBlankTmp = '''
-    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    pBlankTmp = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:pPr>
             <w:pStyle w:val="2"/>
             <w:rPr>
@@ -1864,31 +1861,11 @@ class etNode():
                 <w:sz w:val="20"/>
             </w:rPr>
         </w:pPr>
-    </w:p>
-    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-        <w:pPr>
-            <w:pStyle w:val="2"/>
-            <w:rPr>
-                <w:rFonts w:ascii="Times New Roman"/>
-                <w:sz w:val="20"/>
-            </w:rPr>
-        </w:pPr>
-    </w:p>
-    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
-        <w:pPr>
-            <w:pStyle w:val="2"/>
-            <w:rPr>
-                <w:rFonts w:ascii="Times New Roman"/>
-                <w:sz w:val="20"/>
-            </w:rPr>
-        </w:pPr>
-    </w:p>
-    '''
+    </w:p>'''
 
-    sectPrTmp = '''
-    <w:sectPr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+    sectPrTmp = '''<w:sectPr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml
+    /2006/main">
         <w:pgSz w:w="11900" w:h="16840"/>
         <w:pgMar w:top="2040" w:right="540" w:bottom="980" w:left="740" w:header="0" 
         w:footer="789" w:gutter="0"/>
-    </w:sectPr>
-    '''
+    </w:sectPr>'''
