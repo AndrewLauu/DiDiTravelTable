@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class bsNode():
     docTmp = '''
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -961,8 +962,8 @@ class etNode():
         'wpsCustomData': "http://www.wps.cn/officeDocument/2013/wpsCustomData"
         }
 
-    docTmp = '''<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+    docTmp = '''<w:document 
+    xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:o="urn:schemas-microsoft-com:office:office"
                 xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -1403,8 +1404,7 @@ class etNode():
   </w:r>
 </w:p>
     '''
-    pInfoTmpSuffix = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml
-    /2006/main">
+    pInfoTmpSuffix = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
   <w:pPr>
     <w:pStyle w:val="2"/>
     <w:spacing w:before="6"/>
@@ -1837,8 +1837,8 @@ class etNode():
         </w:p>
     </w:tc>'''
 
-    pPaddingTmp = '''<w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006
-    /main">
+    pPaddingTmp = '''
+    <w:p xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:pPr>
             <w:spacing w:after="0"/>
             <w:rPr>
@@ -1863,8 +1863,8 @@ class etNode():
         </w:pPr>
     </w:p>'''
 
-    sectPrTmp = '''<w:sectPr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml
-    /2006/main">
+    sectPrTmp = '''
+    <w:sectPr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
         <w:pgSz w:w="11900" w:h="16840"/>
         <w:pgMar w:top="2040" w:right="540" w:bottom="980" w:left="740" w:header="0" 
         w:footer="789" w:gutter="0"/>
