@@ -5,12 +5,13 @@ from itertools import islice
 from nodeTmp import etNode
 import xml.etree.ElementTree as et
 from lxml import etree as et
+import time
 
 # from nodeTmp import bsNode
 print('Loaded libs.')
 
 # 读取模板
-workbook = xl.load_workbook('files\\template.xlsx', read_only=True, data_only=True)
+workbook = xl.load_workbook('files/template.xlsx', read_only=True, data_only=True)
 worksheet = workbook['tmp']
 # worksheet = workbook.worksheets[0]
 nRow = worksheet.max_row
@@ -19,12 +20,12 @@ workTable = worksheet.iter_rows(min_row=2, values_only=True)
 # priceCol = list(zip(*priceCol))[0]
 # sumPrice = sum([float(i) for i in priceCol])
 sumPrice = workbook['价格']['a13'].value
-
 # 判断行数，拆分页码（分表）
 # pg0:0 -> 13r
 # pg1:13 + 18 * (1-1) -> 13 + 18 * 1
 # pg2:13+18 * (2-1) -> 13 + 18 * 2
-nPage = (nRow - 1 - 13) // 18 + 1
+
+nPage = 1+(nRow - 1 - 13) // 18 +1
 table0 = islice(workTable, 0, 13)
 tables = {p: islice(workTable, 13 + 18 * p - 18, 13 + 18 * p)
           for p in range(1, nPage)}
@@ -72,34 +73,35 @@ for page, table in tables.items():
 # tbl = bs(tblTmp, 'xml')
     tbl = et.fromstring(etNode.tblTmp)
 
-print(f'scanning table {page}')
+    print(f'scanning table {page}')
 # 遍历分表中的行，完善行元素并插入tbl
-for row in table:
+    for row in table:
 # 实例化行元素
 # tr = bs(trTmp, 'xml')
-    tr = et.fromstring(etNode.trTmp)
+        tr = et.fromstring(etNode.trTmp)
 # 遍历行中单元格，完善单元格元素，并插入tr
-for cell in row:
+        for cell in row:
 # 实例化单元格元素，判断奇偶行,匹配格式
 # tc = bs(tcTmp, 'xml')
-    tc = et.fromstring(etNode.tcTmp)
-print(f'Scanning row {row[0]}')
-if row[0] % 2 == 0:
-    tc.find(w + 'tcPr').append(w_shd_even)
+            tc = et.fromstring(etNode.tcTmp)
+            print(f'Scanning table {page} row {row[0]} {cell}')
+            if row[0] % 2 == 0:
+                tc.find(w + 'tcPr').append(w_shd_even)
 # w_t = tc.new_tag('w:t')
 # w_t.string = str(cell)
-w_t = et.SubElement(tc.find(f'{w}p/{w}r'), w + 't')
-w_t.text = str(cell)
+            w_t = et.SubElement(tc.find(f'{w}p/{w}r'), w + 't')
+            w_t.text = str(cell).replace('None','')
 # tc.find(w + 'r').append(w_t)
-tr.append(tc)
+            tr.append(tc)
 # tr插入tbl
-tbl.append(tr)
+        tbl.append(tr)
 # 完善tbl，插入doc
-print('Adding prefix')
-doc.find(w + 'body').append(pPadding)
-for _ in range(3):
-    doc.find(w + 'body').append(pBlank)
-doc.find(w + 'body').append(tbl)
+    print('Adding prefix')
+    doc.find(w + 'body').append(pPadding)
+    for _ in range(3):
+        doc.find(w + 'body').append(pBlank)
+    doc.find(w + 'body').append(tbl)
+    time.sleep(1)
 
 # 实例化sectPr并插入doc
 # sectPr = bs(sectPrTmp, 'xml')
@@ -109,5 +111,5 @@ doc.find(w + 'body').append(sectPr)
 workbook.close()
 print('write to file')
 with open('files/DiDiTravelPersonnel/word/document.xml', 'w') as f:
-    f.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>')
-f.write(et.tostring(doc, encoding='unicode',standalone=True))
+    #f.write('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>')
+    f.write(et.tostring(doc, encoding='utf-8',standalone=True).decode('utf-8'))
